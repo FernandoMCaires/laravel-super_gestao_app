@@ -4,6 +4,10 @@ use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\SobreNosController;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\FornecedoresController;
+use App\Http\Controllers\ProdutosController;
+use App\Http\Controllers\TesteController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +28,12 @@ Route::prefix('/app')->group(function(){
     Route::get ('/produtos', [ProdutosController::class, 'produtos'])->name('app.produtos');
 });
 
+
+
+
+
+Route::get('/teste/{p1}/{p2}', [TesteController::class, 'teste'])->name('teste');
+
+Route::fallback(function(){
+echo 'A rota final não existe. <a href="'.route('site.index').'"> Clique aqui </a>' ;
+});
